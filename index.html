@@ -38,4 +38,28 @@
         navigator.clipboard.writeText(text).then(function () {
           alert("Copied: µ");
         }).catch(function () {
-          fallback
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const temp = document.createElement("textarea");
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.style.position = "fixed";
+      temp.style.left = "-9999px";
+      temp.select();
+      try {
+        document.execCommand("copy");
+        alert("Copied: µ");
+      } catch (e) {
+        alert("Could not copy. Please select and copy manually: " + text);
+      }
+      document.body.removeChild(temp);
+    }
+  </script>
+</body>
+</html>
