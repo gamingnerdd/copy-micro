@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Copy µ</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background-color: #4285f4;
+      color: white;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="copyMicro()">Copy µ</button>
+
+  <script>
+    function copyMicro() {
+      navigator.clipboard.writeText("µ").then(() => {
+        alert("Copied: µ");
+      });
+    }
+  </script>
+</body>
+</html>
