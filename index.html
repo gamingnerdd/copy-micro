@@ -31,10 +31,11 @@
 
   <script>
     function copyMicro() {
-      navigator.clipboard.writeText("µ").then(() => {
-        alert("Copied: µ");
-      });
-    }
-  </script>
-</body>
-</html>
+      const text = "µ";
+
+      // Try modern clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          alert("Copied: µ");
+        }).catch(function () {
+          fallback
