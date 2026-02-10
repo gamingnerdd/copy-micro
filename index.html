@@ -37,19 +37,9 @@
   <script>
     function copyMicro() {
       var input = document.getElementById("microValue");
-      input.focus();
       input.select();
-
-      try {
-        var success = document.execCommand("copy");
-        if (success) {
-          alert("Copied: µ");
-        } else {
-          alert("Could not copy. Please select and copy manually: µ");
-        }
-      } catch (e) {
-        alert("Could not copy. Please select and copy manually: µ");
-      }
+      document.execCommand("copy");
+      alert("Copied: µ");
     }
   </script>
 </body>
